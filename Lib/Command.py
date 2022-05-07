@@ -1,4 +1,5 @@
 from random import choice
+import sys
 
 
 class Command:
@@ -14,8 +15,14 @@ class Command:
             umove = 'Paper'
         elif int(self.user_move) == 2:
             umove = 'Scissor'
-        else:
+        elif int(self.user_move) == 3:
             umove = 'Rock'
+        else:
+            print('ERROR : Selection out of range!')
+            sys.exit()
+        
+        
+        print("\nYou picked \"" + umove + "\", Computer picked \"" + cmove + "\"\n")
         
         if cmove == umove:
             print("DRAW")
@@ -32,5 +39,4 @@ class Command:
         elif umove == 'Paper' and cmove == 'Rock':
             print('YOU WIN')
         
-        print("You pick \"" + umove + "\", Computer pick \"" + cmove + "\"")
 
